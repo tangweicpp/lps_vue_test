@@ -425,7 +425,7 @@ export default {
           });
 
           this.$axios
-            .post(this.$Api.globalUrl + "/print_label_again", _selectData)
+            .post(this.$Api.globalUrl + "/print_label_in_again", _selectData)
             .then((res) => {
               console.log(res);
               if (res.data.ret_code === 200) {
