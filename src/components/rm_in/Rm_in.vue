@@ -68,6 +68,7 @@
           <el-table-column type="selection" width="55"></el-table-column>
           <el-table-column prop="part_no" label="料号" show-overflow-tooltip></el-table-column>
           <el-table-column prop="part_name" label="物料名称" show-overflow-tooltip></el-table-column>
+          <el-table-column prop="supplier_name" label="供应商" show-overflow-tooltip></el-table-column>
           <el-table-column prop="po_id" label="采购单编号" show-overflow-tooltip></el-table-column>
           <el-table-column prop="lot_id" label="到货批号" show-overflow-tooltip></el-table-column>
           <el-table-column prop="total_qty" label="总数量" show-overflow-tooltip></el-table-column>
@@ -373,7 +374,7 @@ export default {
         })
           .then(() => {
             this.$axios
-              .post(this.$Api.globalUrl + "/print_label", _selectData)
+              .post(this.$Api.globalUrl + "/print_label_in", _selectData)
               .then((res) => {
                 console.log(res);
                 if (res.data.ret_code === 200) {
