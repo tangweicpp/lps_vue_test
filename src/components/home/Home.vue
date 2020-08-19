@@ -33,11 +33,15 @@
 
             <el-menu-item index="/rm_non_wafer">
               <i class="el-icon-folder-opened"></i>
-              <span style="font-size:smaller">原材料(非晶圆)</span>
+              <span style="font-size:smaller">原材料上机标签</span>
+            </el-menu-item>
+            <el-menu-item index="/rm_in">
+              <i class="el-icon-folder-opened"></i>
+              <span style="font-size:smaller">原材料进料标签</span>
             </el-menu-item>
             <el-menu-item index="/rm_wafer">
               <i class="el-icon-folder-opened"></i>
-              <span style="font-size:smaller">晶圆</span>
+              <span style="font-size:smaller">晶圆入库标签</span>
             </el-menu-item>
           </el-submenu>
         </el-menu>

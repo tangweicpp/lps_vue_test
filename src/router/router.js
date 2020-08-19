@@ -8,6 +8,7 @@ import Users from '../components/users/Users.vue'
 import Po_uploads from '../components/po_uploads/Po_uploads.vue'
 import Rm_non_wafer from '../components/rm_non_wafer/Rm_non_wafer.vue'
 import Rm_wafer from '../components/rm_wafer/Rm_wafer.vue'
+import Rm_in from '../components/rm_in/Rm_in.vue'
 
 
 // 在模块化工程中use
@@ -23,6 +24,7 @@ const router = new VueRouter(
       {
         path: "/home", name: "home", component: Home, children: [
           { path: "/rm_non_wafer", name: "rm_non_wafer", component: Rm_non_wafer },
+          { path: "/rm_in", name: "rm_in", component: Rm_in },
           { path: "/rm_wafer", name: "rm_wafer", component: Rm_wafer },
         ]
       },
