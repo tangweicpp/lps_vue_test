@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-tabs v-model="activeName">
-      <el-tab-pane label="上机标签打印" name="first">
+      <el-tab-pane label="进料标签打印" name="first">
         <el-form :inline="true" class="demo-form-inline" :model="formData">
           <el-form-item label="开始日期" prop="startDate">
             <el-date-picker
@@ -68,6 +68,7 @@
           <el-table-column type="selection" width="55"></el-table-column>
           <el-table-column prop="part_no" label="料号" show-overflow-tooltip></el-table-column>
           <el-table-column prop="part_name" label="物料名称" show-overflow-tooltip></el-table-column>
+          <el-table-column prop="po_id" label="采购单编号" show-overflow-tooltip></el-table-column>
           <el-table-column prop="lot_id" label="到货批号" show-overflow-tooltip></el-table-column>
           <el-table-column prop="total_qty" label="总数量" show-overflow-tooltip></el-table-column>
           <el-table-column prop="unit_qty" label="单位" show-overflow-tooltip></el-table-column>
@@ -206,7 +207,7 @@ export default {
       }
 
       this.$axios
-        .get(this.$Api.globalUrl + "/query_entry_no", {
+        .get(this.$Api.globalUrl + "/query_po_no", {
           params: this.formData,
         })
         .then((res) => {
@@ -262,11 +263,13 @@ export default {
     },
     getRemoteData() {
       return this.$axios
-        .get(this.$Api.globalUrl + "/query_entry_data", {
+        .get(this.$Api.globalUrl + "/query_po_list_data", {
           params: this.formData,
         })
         .then((res) => {
+          console.log(res.data);
           if (res.data.ret_code != 200) {
+            console.log(res.data);
             this.$message({
               message: res.data.ret_desc,
               showClose: true,
@@ -274,7 +277,7 @@ export default {
               duration: 0,
             });
 
-            if (res.data.ret_partid != "") {
+            if (res.data.ret_part_no != "") {
               this.dialogVisible = true;
               this.formData2.partName = res.data.ret_part_name;
               this.formData2.partID = res.data.ret_part_no;
