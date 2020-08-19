@@ -1,4 +1,4 @@
-let globalUrl = "http://10.160.31.116:5000";
+let globalUrl = "http://10.160.1.74:5000";
 
 let baseUrl = {
     globalUrl
